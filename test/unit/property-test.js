@@ -96,10 +96,10 @@ lab.experiment('property - ', () => {
         clearDown();
         // TODO add all meta data properties
         expect(propertiesAlt.parseProperty('x', Joi.string().meta({ 'x': 'y' }), null, 'body', true, false)).to.equal({ 'type': 'string', 'x-meta': { 'x': 'y' } });
-        expect(propertiesNoAlt.parseProperty('x', Joi.string().forbidden(), null, 'body', true, false)).to.equal(undefined);
+        expect(propertiesNoAlt.parseProperty('x', Joi.string().forbidden(), null, 'body', true, false)).to.equal({ 'type': 'string' });
         expect(propertiesNoAlt.parseProperty('x', Joi.string().required(), null, 'body', true, false)).to.equal({ 'type': 'string' }); // required in parent
         expect(propertiesNoAlt.parseProperty('x', Joi.any().required(), null, 'body', true, false)).to.equal({ 'type': 'string' }); // required in parent
-        expect(propertiesNoAlt.parseProperty('x', Joi.any().forbidden(), null, 'body', true, false)).to.equal(undefined);
+        expect(propertiesNoAlt.parseProperty('x', Joi.any().forbidden(), null, 'body', true, false)).to.equal({ 'type': 'string' });
         expect(propertiesNoAlt.parseProperty('x', Joi.string().valid(['a', 'b']), null, 'body', true, false)).to.equal({ type: 'string', enum: ['a', 'b'] });
         expect(propertiesNoAlt.parseProperty('x', Joi.string().valid(['a', 'b', '']), null, 'body', true, false)).to.equal({ type: 'string', enum: ['a', 'b'] });
         expect(propertiesNoAlt.parseProperty('x', Joi.string().valid(['a', 'b', null]), null, 'body', true, false)).to.equal({ type: 'string', enum: ['a', 'b'] });

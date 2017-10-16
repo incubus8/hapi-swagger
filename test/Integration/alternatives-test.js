@@ -223,6 +223,9 @@ lab.experiment('alternatives', () => {
                             'x-alternatives': [
                                 {
                                     '$ref': '#/x-alt-definitions/Dimensions'
+                                },
+                                {
+                                    'type': 'string'
                                 }
                             ]
                         }
