@@ -1,5 +1,5 @@
 {
-  "name": "@jenius2/hapi-swagger",
+  "name": "@jenius2/j2-hapi-swagger",
   "description": "Fork: A swagger documentation UI generator plugin for hapi",
   "version": "7.9.0",
   "author": "Rheza Satria",
